@@ -7,25 +7,25 @@ import java.time.LocalDate;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class RequestViewDTO {
 
-    private LocalDate creation_date;
+    private Long creation_date;
     private String title;
     private Boolean is_answered;
     private String link;
 
     public RequestViewDTO() { }
 
-    public RequestViewDTO(LocalDate creation_date, String title, Boolean is_answered, String link) {
+    public RequestViewDTO(Long creation_date, String title, Boolean is_answered, String link) {
         this.creation_date = creation_date;
         this.title = title;
         this.is_answered = is_answered;
         this.link = link;
     }
 
-    public LocalDate getCreation_date() {
+    public Long getCreation_date() {
         return creation_date;
     }
 
-    public void setCreation_date(LocalDate creation_date) {
+    public void setCreation_date(Long creation_date) {
         this.creation_date = creation_date;
     }
 

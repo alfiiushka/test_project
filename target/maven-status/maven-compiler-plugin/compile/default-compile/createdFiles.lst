@@ -1,3 +1,5 @@
+com\test\alfia\appforpiano\JsonParseService.class
+com\test\alfia\appforpiano\RequestViewDTO.class
+com\test\alfia\appforpiano\RequestViews.class
 com\test\alfia\appforpiano\ConnectionController.class
 com\test\alfia\appforpiano\AppForPianoApplication.class
-com\test\alfia\appforpiano\RequestViewDTO.class
