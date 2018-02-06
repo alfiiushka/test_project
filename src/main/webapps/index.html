@@ -3,14 +3,29 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>YourApp</title>
-    <script src="js/jquery-2.1.3.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
 </head>
 <body>
-<h1> HELLO WORLD </h1>
+<h1> Search questions from StackOverflow</h1>
+<h2> Enter part of question's title</h2>
 <input type="text" id="name"/>
-<a id="get" href="#">GET</a>
+<a id="get" href="#">Search</a>
 
-<div id="container"></div>
+<div id="container">
+    <table>
+        <thead>
+        <tr>
+            <td>Date</td>
+            <td>Title</td>
+            <td>User</td>
+        </tr>
+        </thead>
+        <tbody id="questionslist">
+        </tbody>
+    </table>
+
+
+</div>
 </body>
 
 <script>
@@ -20,11 +35,23 @@
         } else {
             $.ajax({
                 type: "GET",
-                cache: false,
-                url: '/api/questions',
+                url: "/questions",
                 data: {
                     'name': $("#name").val()
+                },
+                success: function (data) {
+                    var row = '';
+                    for (var i in data) {
+                        var color;
+                        if(data[i].is_answered){
+                            color="style=\"color:green\"";}
+                        else{
+                            color="style=\"color:red\"";}
+                        row += '<tr '+color+' ><td>' + new Date(data[i].creation_date).toDateString() + '</td><td class="m-action"> <a id="id_link" href="' + data[i].link + '">' + data[i].title + '</a></td><td>' + data[i].owner.display_name + '</td></td></tr>';
+                    }
+                    $('#questionslist').html(row);
                 }
+
             });
         }
     });

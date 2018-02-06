@@ -11,6 +11,8 @@ public class RequestViewDTO {
     private String title;
     private Boolean is_answered;
     private String link;
+    private String answerExist;
+    private OwnerDTO owner;
 
     public RequestViewDTO() { }
 
@@ -51,5 +53,21 @@ public class RequestViewDTO {
 
     public void setLink(String link) {
         this.link = link;
+    }
+
+    public OwnerDTO getOwner() {
+        return owner;
+    }
+
+    public void setOwner(OwnerDTO owner) {
+        this.owner = owner;
+    }
+
+    public String getAnswerExist() {
+        return answerExist;
+    }
+
+    public void setAnswerExist(String answerExist) {
+        this.answerExist = answerExist;
     }
 }

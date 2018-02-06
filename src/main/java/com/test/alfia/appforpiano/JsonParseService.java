@@ -14,7 +14,7 @@ import java.util.zip.GZIPInputStream;
 public class JsonParseService{
 
     public List<RequestViewDTO> getItems (String url)throws IOException, JSONException {
-        String json=readJsonFromUrl(url);;
+        String json=readJsonFromUrl(url);
         Gson g = new Gson();
         return g.fromJson(json, RequestViews.class).getItems();
     }
